@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 
 export function Footer() {
@@ -8,11 +10,11 @@ export function Footer() {
         {[...Array(8)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-6 h-6 bg-secondary rounded-full"
+            className="absolute w-6 h-6 bg-secondary rounded-full animate-spin"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              animation: `spin ${10 + i * 2}s linear infinite`,
+              animationDuration: `${10 + i * 2}s`,
             }}
           />
         ))}
@@ -58,17 +60,6 @@ export function Footer() {
           </Link>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
     </footer>
   )
 }
