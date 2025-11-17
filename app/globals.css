@@ -1,0 +1,119 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Updated theme for warm paper-craft aesthetic with cream background and pastel accents */
+:root {
+  --background: #FAF7F2;
+  --foreground: #404040;
+  --card: #FFFFFF;
+  --card-foreground: #404040;
+  --popover: #FFFFFF;
+  --popover-foreground: #404040;
+  --primary: #8AB4F8;
+  --primary-foreground: #FFFFFF;
+  --secondary: #FFD39A;
+  --secondary-foreground: #404040;
+  --muted: #EDE8E2;
+  --muted-foreground: #6B6B6B;
+  --accent: #D9B8F7;
+  --accent-foreground: #404040;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5DFD8;
+  --input: #E5DFD8;
+  --ring: #8AB4F8;
+  --radius: 1rem;
+}
+
+.dark {
+  --background: #2A2826;
+  --foreground: #FAF7F2;
+  --card: #3A3632;
+  --card-foreground: #FAF7F2;
+  --popover: #3A3632;
+  --popover-foreground: #FAF7F2;
+  --primary: #8AB4F8;
+  --primary-foreground: #FFFFFF;
+  --secondary: #FFD39A;
+  --secondary-foreground: #2A2826;
+  --muted: #403D39;
+  --muted-foreground: #B8B3AD;
+  --accent: #D9B8F7;
+  --accent-foreground: #FAF7F2;
+  --destructive: #DC2626;
+  --destructive-foreground: #FAF7F2;
+  --border: #4A4742;
+  --input: #4A4742;
+  --ring: #8AB4F8;
+}
+
+@theme inline {
+  --font-sans: 'Quicksand', 'Geist Fallback';
+  --font-serif: 'DM Serif Display', 'Georgia', 'serif';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added paper-craft specific styles for layered effects and shadows */
+@layer utilities {
+  .paper-layer {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+  
+  .paper-layer-lifted {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+  
+  .paper-deep {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12), 0 12px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .paper-texture {
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.01) 2px,
+        rgba(0, 0, 0, 0.01) 4px
+      );
+  }
+  
+  .parallax-slow {
+    transform: translateZ(-1px) scale(1.1);
+  }
+}
